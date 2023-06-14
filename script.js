@@ -1,7 +1,7 @@
 import openai
 
 # Set up OpenAI API credentials
-openai.api_key = "YOUR_API_KEY"
+openai.api_key = "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"
 
 def generate_horoscope(name):
     prompt = f"Horoscope for {name}:"
