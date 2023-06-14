@@ -1,26 +1,43 @@
-import openai
+def add(num1, num2):
+    return num1 + num2
 
-# Set up OpenAI API credentials
-openai.api_key = "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"
+def subtract(num1, num2):
+    return num1 - num2
 
-def generate_horoscope(name):
-    prompt = f"Horoscope for {name}:"
-    response = openai.Completion.create(
-        engine="davinci",
-        prompt=prompt,
-        max_tokens=100,
-        temperature=0.7,
-        n=1,
-        stop=None,
-        timeout=10
-    )
-    horoscope = response.choices[0].text.strip()
-    return horoscope
+def multiply(num1, num2):
+    return num1 * num2
 
-def main():
-    name = input("Enter your name: ")
-    horoscope = generate_horoscope(name)
-    print(horoscope)
+def divide(num1, num2):
+    return num1 / num2
 
-if __name__ == "__main__":
-    main()
+def calculator():
+    print("Calculator")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+    choice = input("Enter your choice (1-4): ")
+
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+
+    if choice == "1":
+        result = add(num1, num2)
+        operator = "+"
+    elif choice == "2":
+        result = subtract(num1, num2)
+        operator = "-"
+    elif choice == "3":
+        result = multiply(num1, num2)
+        operator = "*"
+    elif choice == "4":
+        result = divide(num1, num2)
+        operator = "/"
+    else:
+        print("Invalid choice.")
+        return
+
+    print(f"{num1} {operator} {num2} = {result}")
+
+calculator()
